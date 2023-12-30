@@ -1,0 +1,53 @@
+{% extends "layout.html" %} {% block title %} Your Visits {% endblock %} {%
+block main %}
+<div class="container-fluid py-5 text-center">
+  {% if visits %}
+  <div class="table-responsive">
+    <form action="/profile/visits" method="post">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Cancel Visit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for visit in visits %}
+          <tr>
+            <td>{{ visit.date }}</td>
+            <td>{{ visit.name }}</td>
+            <td>{{ visit.type }}</td>
+            <td>{{ visit.size }}</td>
+            <td>{{ visit.age }}</td>
+            <td>{{ visit.gender }}</td>
+            <td>
+              <button class="btn btn-primary" type="submit">
+                <i class="fas fa-trash"></i>
+              </button>
+              <input type="hidden" id="id" name="id" value="{{visit.id}}" />
+              <input
+                type="hidden"
+                id="petId"
+                name="petId"
+                value="{{visit.petId}}"
+              />
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </div>
+  {% endif %} {% if not visits %}
+  <p>
+    No visit has been scheduled yet.
+    <a href="/adopt">Click here to schedule a visit.</a>
+  </p>
+  {% endif %}
+</div>
+{% endblock %}

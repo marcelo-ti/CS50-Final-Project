@@ -1,0 +1,148 @@
+{% extends "layout.html" %} {% block title %} Adopt {% endblock %} {% block main
+  %}
+  <div class="adopt">
+    {% if errorMessage %}
+    <script>
+      getPetDetails({{ petId }});
+      openPetModal();
+    </script>
+    {% endif %}
+    <div
+      class="modal fade"
+      id="petModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="petModalLabel"
+      aria-hidden="true"
+    >
+      <script>
+        setDateDefaultValues();
+      </script>
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="petModalLabel">
+              Adopt <span id="petName"></span>
+            </h5>
+            <button
+              type="button"
+              class="btn close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/adopt" method="post">
+              <div>
+                <span><b>Type:</b> <span id="petType"></span></span>
+              </div>
+              <div>
+                <span><b>Age:</b> <span id="petAge"></span></span>
+              </div>
+              <div>
+                <span><b>Size:</b> <span id="petSize"></span></span>
+              </div>
+              <div>
+                <span><b>Gender:</b> <span id="petGender"></span></span>
+              </div>
+              <p><b>About:</b> <span id="petAbout"></span></p>
+  
+              {% if errorMessage %}
+              <div class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+              </div>
+              {% endif %}
+  
+              <div class="row">
+                <div class="col-6 mb-2">
+                  <label for="date"><b>Date:</b></label>
+                </div>
+                <div class="col-6 mb-2">
+                  <label for="hour"><b>Hour:</b></label>
+                </div>
+                <div class="mb-3 col-6">
+                  <input
+                    class="form-control"
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                    value="{{date}}"
+                  />
+                </div>
+                <div class="mb-3 col-6">
+                  <input
+                    class="form-control"
+                    type="time"
+                    id="hour"
+                    name="hour"
+                    required
+                    min="09:00"
+                    max="18:00"
+                    step="3600"
+                    value="{{hour}}"
+                  />
+                </div>
+              </div>
+  
+              <div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button class="btn btn-primary" type="submit">
+                    I want to schedule a visit
+                  </button>
+                </div>
+              </div>
+              <input type="hidden" id="petId" name="petId" value="{{petId}}" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container-fluid py-5 text-center">
+      {% if pets %}
+      <div class="row">
+        {% for pet in pets %}
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="data:image/jpeg;base64,{{ pet.image }}"
+              alt="pet image"
+              height="300px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Adopt <b>{{ pet.name }}</b></h5>
+              <div>
+                <span class="card-text">{{ pet.gender }}</span>
+              </div>
+              <p class="card-text">{{ pet.age }} years old</p>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#petModal"
+                onclick="getPetDetails({{ pet.id }})"
+                >Know my history</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %} {% if not pets %}
+      <p>There are no animals to be adopted.</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endblock %}
+  

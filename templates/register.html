@@ -1,0 +1,111 @@
+{% extends "layout.html" %} {% block title %} Register {% endblock %} {% block
+main %}
+<div class="container-fluid py-5 text-center">
+  <form action="/register" method="post">
+    <div class="row">
+      <div
+        class="col-sm-12 col-md-12 offset-lg-1 col-lg-5 offset-xl-1 col-xl-5"
+      >
+        <h5>Account Settings</h5>
+        <div class="mb-2">
+          <label for="username">Username</label>
+        </div>
+        <div class="mb-3">
+          <input
+            autocomplete="off"
+            autofocus
+            class="form-control mx-auto w-auto"
+            id="username"
+            name="username"
+            placeholder="e.g. user123"
+            required
+            type="text"
+            maxlength="100"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="password">Password</label>
+        </div>
+        <div class="mb-3">
+          <input
+            class="form-control mx-auto w-auto"
+            id="password"
+            name="password"
+            minlength="8"
+            maxlength="20"
+            placeholder="At least 8 characters"
+            required
+            type="password"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            class="form-control mx-auto w-auto"
+            name="confirmation"
+            minlength="8"
+            maxlength="20"
+            placeholder="Confirm Password"
+            required
+            type="password"
+          />
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h5>Personal Settings</h5>
+        <div class="mb-2">
+          <label for="fullname">Full Name</label>
+        </div>
+        <div class="mb-3">
+          <input
+            autocomplete="off"
+            autofocus
+            class="form-control mx-auto w-auto"
+            id="fullname"
+            name="fullname"
+            placeholder="Full Name"
+            required
+            type="text"
+            maxlength="100"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="email">Email</label>
+        </div>
+        <div class="mb-3">
+          <input
+            autocomplete="off"
+            autofocus
+            class="form-control mx-auto w-auto"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+            type="text"
+            maxlength="100"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="mb-3">
+          <input
+            autocomplete="off"
+            autofocus
+            class="form-control mx-auto w-auto"
+            id="phone"
+            name="phone"
+            placeholder="Phone"
+            required
+            type="text"
+            pattern="[0-9]+"
+            maxlength="20"
+          />
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

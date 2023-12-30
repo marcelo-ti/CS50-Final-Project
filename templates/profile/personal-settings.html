@@ -1,0 +1,62 @@
+{% extends "layout.html" %} {% block title %} Personal Settings {% endblock %}
+{% block main %}
+<div class="container-fluid py-5 text-center">
+  <div class="mx-auto" id="change-profile">
+    <form action="/profile/personal-settings" method="post">
+      <div class="mb-2">
+        <label for="fullname">Full Name</label>
+      </div>
+      <div class="mb-3">
+        <input
+          autocomplete="off"
+          autofocus
+          class="form-control mx-auto w-auto"
+          id="fullname"
+          name="fullname"
+          value="{{ fullname }}"
+          placeholder="Full Name"
+          required
+          type="text"
+          maxlength="100"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="email">Email</label>
+      </div>
+      <div class="mb-3">
+        <input
+          autocomplete="off"
+          autofocus
+          class="form-control mx-auto w-auto"
+          id="email"
+          name="email"
+          value="{{ email }}"
+          placeholder="Email"
+          required
+          type="text"
+          maxlength="100"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="phone">Phone</label>
+      </div>
+      <div class="mb-3">
+        <input
+          autocomplete="off"
+          autofocus
+          class="form-control mx-auto w-auto"
+          id="phone"
+          name="phone"
+          value="{{ phone }}"
+          placeholder="Phone"
+          required
+          type="text"
+          pattern="[0-9]+"
+          maxlength="20"
+        />
+      </div>
+      <button class="btn btn-primary" type="submit">Update Information</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

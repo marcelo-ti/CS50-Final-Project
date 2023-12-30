@@ -1,0 +1,187 @@
+{% extends "layout.html" %} {% block title %} Contact Us {% endblock %} {% block
+main %}
+<div class="contact-us">
+  {% if submissionSuccessful %}
+  <script>
+    openContactUsModal();
+  </script>
+  <div
+    class="modal fade"
+    id="alertModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="alertModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertModalLabel">Alert</h5>
+          <button
+            type="button"
+            class="btn close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">Email successfully sent!</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="container-fluid">
+    <div class="row about">
+      <div
+        class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 title-section"
+      >
+        <p class="h2">Contact Us</p>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <span>
+          The purpose of this section is to foster communication between you,
+          the adopter, and us. It is designed to address any questions or
+          concerns that may have arisen, ensuring a clear and smooth process.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="map-container secondary-color-background">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234069.33976066558!2d-46.35132630466245!3d-23.55646526325703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd81269172647%3A0xb3859ba7fe8bbb07!2sMogi%20das%20Cruzes%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1703699236359!5m2!1spt-BR!2sbr"
+      width="100%"
+      height="350"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <div class="container-fluid">
+    <div class="row about">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <p class="h2">Getting In Touch</p>
+        <div>
+          <p>
+            Do you have any questions? Please don't hesitate to reach out to us.
+            We're here to happily address any concerns or uncertainties you may
+            have:
+          </p>
+        </div>
+        <div>
+          <span
+            ><i class="fas fa-home me-3"></i>Mogi das Cruzes, SP 12345-678,
+            BR</span
+          >
+        </div>
+        <div>
+          <span><i class="fas fa-envelope me-3"></i>info@adoptapaw.com</span>
+        </div>
+        <div>
+          <span><i class="fas fa-phone me-3"></i>+ 55 (11) 1234-5678</span>
+        </div>
+        <div>
+          <span><i class="fas fa-mobile me-3"></i>+ 55 (11) 9.1234-5678</span>
+        </div>
+      </div>
+      <div
+        class="mt-2 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6"
+      >
+        <form action="/contact-us" method="post">
+          <div class="mb-2">
+            <label for="name"><b>Name:</b></label>
+          </div>
+          <div class="mb-3">
+            <input
+              autocomplete="off"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+              type="text"
+              maxlength="100"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="email"><b>Email:</b></label>
+          </div>
+          <div class="mb-3">
+            <input
+              autocomplete="off"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+              type="email"
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+              maxlength="100"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="phone"><b>Phone:</b></label>
+          </div>
+          <div class="mb-3">
+            <input
+              autocomplete="off"
+              class="form-control"
+              id="phone"
+              name="phone"
+              placeholder="Phone"
+              required
+              type="text"
+              pattern="[0-9]+"
+              maxlength="20"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="topic"><b>Topic:</b></label>
+          </div>
+          <div class="mb-3">
+            <select
+              class="form-control"
+              id="topic"
+              name="topic"
+              placeholder="Topic"
+              required
+            >
+              <option disabled selected value>Select an option</option>
+              <option value="how-to-help">How to help</option>
+              <option value="adoption">Adoption</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="message"><b>Message:</b></label>
+          </div>
+          <div class="mb-3">
+            <textarea
+              autocomplete="off"
+              class="form-control"
+              id="message"
+              name="message"
+              placeholder="Message"
+              required
+              type="text"
+              maxlength="1000"
+            ></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

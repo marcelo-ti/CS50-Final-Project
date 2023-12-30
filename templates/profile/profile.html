@@ -1,0 +1,28 @@
+{% extends "layout.html" %} {% block title %} Profile {% endblock %} {% block
+main %}
+<div class="container-fluid py-5 text-center">
+  <p>
+    <a
+      href="/profile/account-settings"
+      class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+      >Account Settings</a
+    >
+  </p>
+
+  <p>
+    <a
+      href="/profile/personal-settings"
+      class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+      >Personal Settings</a
+    >
+  </p>
+
+  <p>
+    <a
+      href="/profile/visits"
+      class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+      >Your Visits</a
+    >
+  </p>
+</div>
+{% endblock %}
