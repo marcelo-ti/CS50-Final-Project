@@ -1,8 +1,6 @@
 # Adopt A Paw
 
-#### Video Demo:
-
-<https://www.youtube.com>
+#### Video Demo: https://youtu.be/-GjdRrGwudA
 
 #### Description
 
@@ -11,7 +9,7 @@ This repository contains the final project for CS50, Harvard University's Introd
 #### Contents
 
 - [Adopt A Paw](#adopt-a-paw)
-  - [Video Demo](#video-demo)
+  - [Video Demo](#video-demo-httpsyoutube-gjdrrgwuda)
   - [Description](#description)
   - [Contents](#contents)
   - [Technologies](#technologies)
